@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useRoutes } from 'react-router-dom';
+import routes from './Routes/RoutersList';
+import { Fragment } from 'react';
 
 function App() {
+
+  const element = useRoutes(routes)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          练习git多人协作-fetch，merge，pull指令
-          ok
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      {element}
+    </Fragment>
   );
 }
 
