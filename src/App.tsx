@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React12
+          练习git多人协作-fetch，merge，pull指令
         </a>
       </header>
     </div>
