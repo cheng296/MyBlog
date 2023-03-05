@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
 import { useRoutes } from 'react-router-dom';
-import routes from './Routes/RoutersList';
+import routes from './Routes';
 import { Fragment } from 'react';
 
-function App() {
-
+const App: React.FC = () => {
   const element = useRoutes(routes)
   return (
     <Fragment>
@@ -13,5 +12,4 @@ function App() {
     </Fragment>
   );
 }
-
 export default App;
