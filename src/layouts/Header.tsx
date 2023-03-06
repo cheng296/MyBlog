@@ -2,26 +2,44 @@ import { Layout, Menu, Dropdown, Avatar } from 'antd';
 import type { MenuProps } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const { Header } = Layout;
 
-const Headers: React.FC = () => {
+interface props {
+    name?: string;
+    sex?: string;
+    age?: number;
+    fun?: () => void;
+}
+
+const Headers: React.FC<props> = () => {
+    const navigate = useNavigate()
     /** 命名规范！！！！！ */
-    const items1: MenuProps['items'] = [
+    const titles: MenuProps['items'] = [
         {
-            key: '1',
+            key: '/home',
             label: `首页`,
+            onClick: () => {
+                navigate('/home')
+            }
         },
         {
-            key: '2',
-            label: `博客分类`
+            key: '/category',
+            label: `博客分类`,
+            onClick: () => {
+                navigate('/category')
+            }
         },
         {
-            key: '3',
-            label: `博客管理`
+            key: '/blog-manage',
+            label: `博客管理`,
+            onClick: () => {
+                navigate('/blog-manage')
+            }
         }
     ];
-     /** 命名规范！！！！！ */
+
     const items: MenuProps['items'] = [
         {
             key: '1',
@@ -35,18 +53,17 @@ const Headers: React.FC = () => {
     ];
 
     return (
-        <Header className="header">
-            <div className="logo" />
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} items={items1} />
-
+        <Header className="header" style={{ marginBottom: '4vh' }}>
             <div style={{ float: 'right' }}>
-                <span style={{ marginRight: '15px' }}>
+                <span style={{ marginRight: '15px', color: 'white' }}>
                     欢迎admin回来
                 </span>
                 <Dropdown menu={{ items }}>
                     <Avatar size="large" icon={<UserOutlined />} />
                 </Dropdown>
             </div>
+            <Menu theme="dark" mode="horizontal" selectedKeys={[useLocation().pathname]} items={titles} />
+
         </Header>
     )
 }

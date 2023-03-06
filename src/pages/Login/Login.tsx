@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Login: React.FC = () => {
+  const [test, useTest] = useState<{ age: number }[]>()
   return (
     <div>
       login

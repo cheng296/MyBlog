@@ -7,6 +7,7 @@ import BlogAdd from '../pages/SandBox/BlogManage/BlogAdd';
 import BlogDraft from '../pages/SandBox/BlogManage/BlogDraft';
 import BlogUnPublish from '../pages/SandBox/BlogManage/BlogUnPublish';
 import BlogPublished from '../pages/SandBox/BlogManage/BlogPublished';
+import BlogManage from '../pages/SandBox/BlogManage/BlogManage';
 
 const routes = [
     {
@@ -27,6 +28,7 @@ const routes = [
             },
             {
                 path:'blog-manage',
+                element:<BlogManage/>,
                 children:[
                     {
                         path:'blog-add',
@@ -43,7 +45,11 @@ const routes = [
                     {
                         path:'blog-published',
                         element:<BlogPublished/>
-                    }
+                    },
+                    {
+                        path: 'blog-manage',
+                        element: <Navigate to='blog-add' />
+                    },
                 ]
             },
             {
