@@ -2,26 +2,44 @@ import React from 'react'
 import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Outlet } from 'react-router-dom';
+import { useNavigate, Outlet,useLocation } from 'react-router-dom';
 const { Sider, Content } = Layout;
 
 const BlogManage: React.FC = () => {
+    const navigate = useNavigate()
 
     const items2: MenuProps['items'] = [
         {
-            key: `sub$1`,
+            key: `/blog-manage/blog-add`,
             icon: React.createElement(UserOutlined),
-            label: `subnav 1`,
+            label: `撰写博客`,
+            onClick: ()=>{
+                navigate('/blog-manage/blog-add')
+            }
         },
         {
-            key: `sub$2`,
+            key: `/blog-manage/blog-draft`,
             icon: React.createElement(UserOutlined),
-            label: `subnav 2`,
+            label: `草稿箱`,
+            onClick: ()=>{
+                navigate('/blog-manage/blog-draft')
+            }
         },
         {
-            key: `sub$3`,
+            key: `/blog-manage/blog-unpublish`,
             icon: React.createElement(UserOutlined),
-            label: `subnav 3`,
+            label: `未发布`,
+            onClick: ()=>{
+                navigate('/blog-manage/blog-unpublish')
+            }
+        },
+        {
+            key: `/blog-manage/blog-published`,
+            icon: React.createElement(UserOutlined),
+            label: `已发布`,
+            onClick: ()=>{
+                navigate('/blog-manage/blog-published')
+            }
         }
     ];
     return (
@@ -29,8 +47,7 @@ const BlogManage: React.FC = () => {
             <Sider className="site-layout-background" width={200}>
                 <Menu
                     mode="inline"
-                    defaultSelectedKeys={['1']}
-                    defaultOpenKeys={['sub1']}
+                    selectedKeys={[useLocation().pathname]}
                     items={items2}
                 />
             </Sider>

@@ -1,0 +1,7 @@
+.registerForm{
+    width: 600px;
+    position: fixed;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%,-50%);
+}

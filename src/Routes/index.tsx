@@ -8,11 +8,16 @@ import BlogDraft from '../pages/SandBox/BlogManage/BlogDraft';
 import BlogUnPublish from '../pages/SandBox/BlogManage/BlogUnPublish';
 import BlogPublished from '../pages/SandBox/BlogManage/BlogPublished';
 import BlogManage from '../pages/SandBox/BlogManage/BlogManage';
+import Register from '../pages/Register/Register';
 
 const routes = [
     {
         path:'login',
         element:<Login/>
+    },
+    {
+        path:'register',
+        element:<Register/>
     },
     {
         path:'/',
@@ -47,7 +52,7 @@ const routes = [
                         element:<BlogPublished/>
                     },
                     {
-                        path: 'blog-manage',
+                        path: '/blog-manage',
                         element: <Navigate to='blog-add' />
                     },
                 ]

@@ -6,16 +6,9 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 const { Header } = Layout;
 
-interface props {
-    name?: string;
-    sex?: string;
-    age?: number;
-    fun?: () => void;
-}
-
-const Headers: React.FC<props> = () => {
+const Headers: React.FC = () => {
     const navigate = useNavigate()
-    /** 命名规范！！！！！ */
+    const username = localStorage.getItem('username')
     const titles: MenuProps['items'] = [
         {
             key: '/home',
@@ -40,29 +33,40 @@ const Headers: React.FC<props> = () => {
         }
     ];
 
-    const items: MenuProps['items'] = [
+    const user: MenuProps['items'] = [
         {
             key: '1',
-            label: 'admin'
+            label: username
         },
         {
             key: '2',
             danger: true,
             label: '退出',
+            onClick: () => {
+                localStorage.removeItem('username')
+                navigate('/')
+            }
         },
     ];
 
     return (
         <Header className="header" style={{ marginBottom: '4vh' }}>
-            <div style={{ float: 'right' }}>
-                <span style={{ marginRight: '15px', color: 'white' }}>
-                    欢迎admin回来
-                </span>
-                <Dropdown menu={{ items }}>
-                    <Avatar size="large" icon={<UserOutlined />} />
-                </Dropdown>
-            </div>
-            <Menu theme="dark" mode="horizontal" selectedKeys={[useLocation().pathname]} items={titles} />
+            {
+                localStorage.getItem('username') ?
+                    (<div style={{ float: 'right' }}>
+                        <span style={{ marginRight: '15px', color: 'white' }}>
+                            欢迎{username}回来
+                        </span>
+                        <Dropdown menu={{ items: user }}>
+                            <Avatar size="large" icon={<UserOutlined />} />
+                        </Dropdown>
+                    </div>)
+                    : (<div style={{ float: 'right'}}>
+                        <a href='#/login' style={{color: 'white'}}>登录</a>;nbsp
+                        <a href='#/register' style={{color: 'white'}}>注册</a>
+                    </div>)
+            }
+            <Menu theme="dark" mode="horizontal" selectedKeys={["/" + useLocation().pathname.split('/')[1]]} items={titles} />
 
         </Header>
     )
