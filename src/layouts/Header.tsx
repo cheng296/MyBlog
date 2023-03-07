@@ -44,6 +44,7 @@ const Headers: React.FC = () => {
             label: '退出',
             onClick: () => {
                 localStorage.removeItem('username')
+                localStorage.removeItem('token')
                 navigate('/')
             }
         },

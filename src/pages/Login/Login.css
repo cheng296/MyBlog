@@ -5,7 +5,11 @@
     left: 50%;
     transform: translate(-50%,-50%);
 }
-#root, .ant-layout{
+#root{
+    background-image: url(./background.jpg);
+    background-size:100%,100%;
+}
+.ant-layout{
     background-image: url(./backageimg.png);
     background-size:100%,100%;
 }

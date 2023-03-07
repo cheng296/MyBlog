@@ -9,14 +9,16 @@ const Login: React.FC = () => {
   const navigate = useNavigate()
 
   const onFinish = (values: any) => {
-    loginCheck(values).then(res=>{
-      if(res){
-          localStorage.setItem('username',values.username)
-          navigate('/')
-      }else{
+    loginCheck(values).then(res => {
+      if (res.data.ok) {
+        const { authorization } = res.headers
+        localStorage.setItem('token',authorization)
+        localStorage.setItem('username', values.username)
+        navigate('/')
+      } else {
         message.error('用户名或密码不匹配')
       }
-  })
+    })
   };
   return (
     <div className="loginForm">

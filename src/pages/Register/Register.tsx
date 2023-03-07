@@ -1,29 +1,37 @@
 import React from 'react';
 import { Form, Input, Select, Button } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import './Register.css'
+import { regiserSend } from '../../services/Register/Register';
 
 const { Option } = Select;
 
-const formItemLayout = {
-    labelCol: {
-        xs: { span: 24 },
-        sm: { span: 8 },
-    },
-    wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 },
-    },
-};
-
-
 const Register: React.FC = () => {
+    const navigate = useNavigate()
     const [form] = Form.useForm();
+    const formItemLayout = {
+        labelCol: {
+            xs: { span: 24 },
+            sm: { span: 8 },
+        },
+        wrapperCol: {
+            xs: { span: 24 },
+            sm: { span: 16 },
+        },
+    };
 
     const onFinish = (values: any) => {
-        console.log('Received values of form: ', values);
+        regiserSend(values).then(res => {
+            if(res.data.ok===1){
+                navigate('/login')
+            }
+        })
     };
     return (
         <div className='registerForm'>
+            <span className="title" style={{ display: 'block', textAlign: 'center' }}>
+                注册用户
+            </span>
             <Form
                 {...formItemLayout}
                 form={form}
@@ -40,7 +48,7 @@ const Register: React.FC = () => {
                         },
                         {
                             required: true,
-                            message: 'Please input your username!',
+                            message: '请输入用户名!',
                         },
                     ]}
                 >
@@ -53,7 +61,7 @@ const Register: React.FC = () => {
                     rules={[
                         {
                             required: true,
-                            message: 'Please input your password!',
+                            message: '请输入密码!',
                         },
                     ]}
                     hasFeedback
@@ -69,14 +77,14 @@ const Register: React.FC = () => {
                     rules={[
                         {
                             required: true,
-                            message: 'Please confirm your password!',
+                            message: '请确认您的密码!',
                         },
                         ({ getFieldValue }) => ({
                             validator(_, value) {
                                 if (!value || getFieldValue('password') === value) {
                                     return Promise.resolve();
                                 }
-                                return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                                return Promise.reject(new Error('两次密码不一致!'));
                             },
                         }),
                     ]}
