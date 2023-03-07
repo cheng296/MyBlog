@@ -1,10 +1,7 @@
 import axios from 'axios'
 
-interface values {
-    username: string,
-    password: string
-}
-export const loginCheck = (values:values) => 
+/** 登录验证接口 */
+export const loginCheck = (values:Login.values) => 
     axios.post('http://localhost:5000/login',{
         username:values.username,
         password:values.password
