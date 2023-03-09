@@ -41,14 +41,6 @@ const BlogManage: React.FC = () => {
             }
         },
         {
-            key: `/blog-manage/blog-unpublish`,
-            icon: React.createElement(UserOutlined),
-            label: `未发布`,
-            onClick: () => {
-                navigate('/blog-manage/blog-unpublish')
-            }
-        },
-        {
             key: `/blog-manage/blog-published`,
             icon: React.createElement(UserOutlined),
             label: `已发布`,

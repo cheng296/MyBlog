@@ -9,10 +9,6 @@
     background-image: url(./background.jpg);
     background-size:100%,100%;
 }
-.ant-layout{
-    background-image: url(./backageimg.png);
-    background-size:100%,100%;
-}
 .title{
     display: block;
     text-align: center;

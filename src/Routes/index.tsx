@@ -5,10 +5,10 @@ import Home from '../pages/SandBox/Home/Home';
 import Category from '../pages/SandBox/Category/Category';
 import BlogAdd from '../pages/SandBox/BlogManage/BlogAdd';
 import BlogDraft from '../pages/SandBox/BlogManage/BlogDraft';
-import BlogUnPublish from '../pages/SandBox/BlogManage/BlogUnPublish';
 import BlogPublished from '../pages/SandBox/BlogManage/BlogPublished';
 import BlogManage from '../pages/SandBox/BlogManage/BlogManage';
 import Register from '../pages/Register/Register';
+import Invalid from '../pages/Invalid/Invalid';
 
 const routes = [
     {
@@ -44,10 +44,6 @@ const routes = [
                         element:<BlogDraft/>
                     },
                     {
-                        path:'blog-unpublish',
-                        element:<BlogUnPublish/>
-                    },
-                    {
                         path:'blog-published',
                         element:<BlogPublished/>
                     },
@@ -61,7 +57,11 @@ const routes = [
                 path: '/',
                 element: <Navigate to='home' />
             },
+            {
+                path: '*',
+                element: <Invalid/>
+            }
         ]
-    }
+    },
 ];
 export default routes
