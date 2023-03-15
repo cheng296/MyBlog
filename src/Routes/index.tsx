@@ -9,6 +9,7 @@ import BlogPublished from '../pages/SandBox/BlogManage/BlogPublished';
 import BlogManage from '../pages/SandBox/BlogManage/BlogManage';
 import Register from '../pages/Register/Register';
 import Invalid from '../pages/Invalid/Invalid';
+import BlogPreview from '../pages/SandBox/BlogManage/BlogPreview'
 
 const routes = [
     {
@@ -46,6 +47,10 @@ const routes = [
                     {
                         path:'blog-published',
                         element:<BlogPublished/>
+                    },
+                    {
+                        path:'blog-preview/:id',
+                        element:<BlogPreview/>
                     },
                     {
                         path: '/blog-manage',

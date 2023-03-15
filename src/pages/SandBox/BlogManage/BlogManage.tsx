@@ -13,6 +13,8 @@ const BlogManage: React.FC = () => {
         if (token) {
             tokenVerify(token).then(res => {
                 if (!res.data.ok) {
+                    localStorage.removeItem('username')
+                    localStorage.removeItem('token')
                     navigate('/login')
                 } else {
                     let authorization = res.headers.authorization
