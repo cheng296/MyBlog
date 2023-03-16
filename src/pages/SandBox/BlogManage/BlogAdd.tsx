@@ -82,9 +82,9 @@ const BlogAdd: React.FC = () => {
           },
         ]}
       />
-      <BlogEditor getContent={(value: any): void => { setContent(value) }} />
+      <BlogEditor getContent={(value: any): void => { setContent(value) }} blogContent={content}/>
       <div>
-        <Button onClick={() => handleNext(1)}>保存到草稿箱</Button>
+        <Button onClick={() => handleNext(1)} style={{marginRight:'20px'}}>保存到草稿箱</Button>
         <Button onClick={() => handleNext(2)} type='primary'>发布</Button>
       </div>
     </div>

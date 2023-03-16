@@ -1,34 +1,38 @@
-import { Descriptions, PageHeader } from 'antd';
-import React,{useEffect, useState} from 'react'
+import { PageHeader } from 'antd';
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { blogPreview } from '../../../services/SandBox/BlogManage/BlogPreview'
 
-interface blogData {
-    _id: String,
-    title:String,
-    category:String,
-    content:String,
-    username:String,
-    state:Number
-}
 const BlogPreview: React.FC = () => {
     const id = useParams().id!
-    const [blogData,setBlogData] = useState<blogData>()
-    useEffect(()=>{
-        blogPreview(id).then(res=>{
+    const [blogData, setBlogData] = useState<blogPreview.blogData>()
+    useEffect(() => {
+        blogPreview(id).then(res => {
             setBlogData(res.data[0])
-            console.log(res.data[0])
         })
-    },[id])
+    }, [id])
     return (
         <div>
-            <PageHeader
-                ghost={false}
-                onBack={() => window.history.back()}
-                title={blogData?.title}
-                subTitle={`类别：${blogData?.category}`}
-            >
-            </PageHeader>
+            {
+                blogData && <div>
+                    <PageHeader
+                        ghost={false}
+                        onBack={() => window.history.back()}
+                        title={blogData?.title}
+                        subTitle={`类别：${blogData?.category}`}
+                    >
+                    </PageHeader>
+                    <div dangerouslySetInnerHTML={{
+                        __html: blogData.content
+                    }}
+                        style={{
+                            margin: '0 24px',
+                            border: '1px solid gray',
+                            height:'562px'
+                        }}>
+                    </div>
+                </div>
+            }
         </div>
     )
 }
