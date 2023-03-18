@@ -44,7 +44,7 @@ const BlogAdd: React.FC = () => {
       <Input 
         placeholder="请输入您的博客标题"
         onChange={InputonChange}
-        style={{marginBottom:'20px'}}
+        style={{marginBottom:'10px'}}
         />
       <Select
         showSearch
@@ -54,7 +54,7 @@ const BlogAdd: React.FC = () => {
         filterOption={(input, option) =>
           (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
         }
-        style={{marginBottom:'20px'}}
+        style={{marginBottom:'10px'}}
         options={[
           {
             value: 'Javascript',

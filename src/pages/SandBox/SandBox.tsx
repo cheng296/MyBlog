@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { Layout } from 'antd';
 import './SandBox.css'
 import Headers from '../../layouts/Header';
+import Footers from '../../layouts/Footer';
 
 const { Content } = Layout;
 
@@ -18,6 +19,7 @@ const SandBox: React.FC = () => {
           </Content>
         </Layout>
       </Content>
+      <Footers/>
     </Layout>
   )
 }

@@ -15,7 +15,7 @@ const BlogDraft: React.FC = () => {
       dataIndex: 'title',
       key: 'title',
       render: (title: string, item: any) => {
-        return <a href={`#/blog-manage/blog-preview/${item._id}`}>{title}</a>
+        return <a href={`#/blog-preview/${item._id}`}>{title}</a>
       }
     },
     {

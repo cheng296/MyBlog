@@ -51,10 +51,6 @@ const routes = [
                         element:<BlogPublished/>
                     },
                     {
-                        path:'blog-preview/:id',
-                        element:<BlogPreview/>
-                    },
-                    {
                         path:'blog-update/:id',
                         element:<BlogUpdate/>
                     },
@@ -63,6 +59,10 @@ const routes = [
                         element: <Navigate to='blog-add' />
                     },
                 ]
+            },
+            {
+                path:'blog-preview/:id',
+                element:<BlogPreview/>
             },
             {
                 path: 'about',
