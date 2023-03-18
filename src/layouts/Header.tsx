@@ -30,6 +30,13 @@ const Headers: React.FC = () => {
             onClick: () => {
                 navigate('/blog-manage')
             }
+        },
+        {
+            key: '/about',
+            label: `关于我们`,
+            onClick: () => {
+                navigate('/about')
+            }
         }
     ];
 
@@ -59,12 +66,12 @@ const Headers: React.FC = () => {
                             欢迎{username}回来
                         </span>
                         <Dropdown menu={{ items: user }}>
-                            <Avatar size="large" icon={<UserOutlined />} />
+                            <Avatar size="large" style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>{username}</Avatar>
                         </Dropdown>
                     </div>)
-                    : (<div style={{ float: 'right'}}>
-                        <a href='#/login' style={{color: 'white'}}>登录</a>;nbsp
-                        <a href='#/register' style={{color: 'white'}}>注册</a>
+                    : (<div style={{ float: 'right' }}>
+                        <a href='#/login' style={{ color: 'white' }}>登录</a>;nbsp
+                        <a href='#/register' style={{ color: 'white' }}>注册</a>
                     </div>)
             }
             <Menu theme="dark" mode="horizontal" selectedKeys={["/" + useLocation().pathname.split('/')[1]]} items={titles} />

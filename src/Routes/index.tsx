@@ -11,6 +11,7 @@ import Register from '../pages/Register/Register';
 import Invalid from '../pages/Invalid/Invalid';
 import BlogPreview from '../pages/SandBox/BlogManage/BlogPreview'
 import BlogUpdate from '../pages/SandBox/BlogManage/BlogUpdate';
+import About from '../pages/SandBox/About/About';
 
 const routes = [
     {
@@ -62,6 +63,10 @@ const routes = [
                         element: <Navigate to='blog-add' />
                     },
                 ]
+            },
+            {
+                path: 'about',
+                element: <About/>
             },
             {
                 path: '/',

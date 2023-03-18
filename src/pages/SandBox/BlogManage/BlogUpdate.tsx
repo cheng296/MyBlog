@@ -8,26 +8,32 @@ import { blogUpdate } from '../../../services/SandBox/BlogManage/BlogUpdate'
 const BlogUpdate: React.FC = () => {
     const navigate = useNavigate()
     const { username } = localStorage
-    const [blogData, setBlogData] = useState<blogPreview.blogData>()
-    const id = useParams().id!
+    const [blogData, setBlogData] = useState<blogPreview.blogData>({
+        _id: '',
+        title: '',
+        category: '',
+        content: '',
+        username: '',
+        state: 0
+    })
+    const _id = useParams().id!
     useEffect(() => {
-        blogUpdate(id).then(res => {
-            setBlogData(res.data[0] ?? {})
-            console.log(res.data[0] ?? {})
+        blogUpdate(_id).then(res => {
+            setBlogData(res.data[0] )
         })
-    }, [id])
+    }, [_id])
     const handleNext = (state: number) => {
-        if (blogData?.title === '') {
+        if (blogData.title === '') {
             message.error('博客标题不能为空！')
         }
-        else if (blogData?.category === '') {
+        else if (blogData.category === '') {
             message.error('博客类别不能为空！')
         }
-        else if (blogData?.content === '' || blogData?.content.trim() === '<p></p>') {
+        else if (blogData.content === '' || blogData.content.trim() === '<p></p>') {
             message.error('博客内容不能为空！')
         }
         else {
-            blogUpdateUp({ id, title: blogData?.title ?? '', category: blogData?.category ?? '', content: blogData?.content ?? '', username, state }).then(res => {
+            blogUpdateUp({_id, title: blogData.title, category: blogData.category, content: blogData.content, username, state }).then(res => {
                 if (res.data) {
                     if (state === 1) {
                         navigate('/blog-manage/blog-draft')
@@ -38,12 +44,13 @@ const BlogUpdate: React.FC = () => {
             })
         }
     }
-    const SelectonChange = (value : string) => {
+    const SelectonChange = (value: string) => {
         setBlogData({ ...blogData, category: value })
     };
     const InputonChange = (event: any) => {
-        setTitle(event.target.value)
+        setBlogData({ ...blogData, title: event.target.value })
     };
+
     return (
         <>
             {blogData && <div style={{ backgroundColor: 'white', width: '900px' }}>
@@ -51,7 +58,7 @@ const BlogUpdate: React.FC = () => {
                     placeholder="请输入您的博客标题"
                     onChange={InputonChange}
                     style={{ marginBottom: '20px' }}
-                    defaultValue={blogData?.title}
+                    value={blogData.title}
                 />
                 <Select
                     showSearch
@@ -62,7 +69,7 @@ const BlogUpdate: React.FC = () => {
                         (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
                     }
                     style={{ marginBottom: '20px' }}
-                    defaultValue={blogData.category}
+                    value={blogData.category}
                     options={[
                         {
                             value: 'Javascript',
@@ -90,7 +97,7 @@ const BlogUpdate: React.FC = () => {
                         },
                     ]}
                 />
-                <BlogEditor getContent={(value: any): void => { setContent(value) }} blogContent={blogData.content} />
+                <BlogEditor getContent={(value: string): void => { setBlogData({ ...blogData, content: value }) }} blogContent={blogData.content} />
                 <div>
                     <Button onClick={() => handleNext(1)} style={{ marginRight: '20px' }}>保存到草稿箱</Button>
                     <Button onClick={() => handleNext(2)} type='primary'>发布</Button>
