@@ -22,7 +22,7 @@ const BlogAdd: React.FC = () => {
       message.error('博客内容不能为空！')
     } 
     else {
-      blogUp(title,category,content,username,state).then(res=>{
+      blogUp({title,category,content,username,state}).then(res=>{
         if(res.data){
           if(state===1){
             navigate('/blogManage/blogDraft')

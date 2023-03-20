@@ -1,2 +1,2 @@
 import axios from "axios";
-export const blogPublished = (user:any) => axios.get(`/blogPublished?username=${user}&state=2`)
+export const blogPublished = (user:any) => axios.get(`/blogManage/blogPublished?username=${user}&state=2`)

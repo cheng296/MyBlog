@@ -1,7 +1,7 @@
 import { PageHeader } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { blogPreview } from '../../../services/SandBox/BlogManage/BlogPreview'
+import { blogPreview } from '../../../services/SandBox/BlogPreview/BlogPreview'
 
 const BlogPreview: React.FC = () => {
     const id = useParams().id!

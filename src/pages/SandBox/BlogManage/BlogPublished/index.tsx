@@ -1,7 +1,7 @@
 import { Table, Tag } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { blogPublished } from '../../../../services/SandBox/BlogManage/BlogPublished'
-import { blogDelete } from '../../../../services/SandBox/BlogManage/BlogDraft/BlogDelete'
+import { blogDelete } from '../../../../services/SandBox/BlogManage'
 
 const BlogPublished: React.FC = () => {
   const [BlogPublishedList, setBlogPublishedList] = useState<BlogPublish.blogData[]>([])

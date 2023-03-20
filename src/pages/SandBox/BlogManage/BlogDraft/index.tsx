@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 import type { ColumnsType } from 'antd/es/table';
 import { DeleteOutlined, EditOutlined, UploadOutlined } from '@ant-design/icons';
 import { draftList } from '../../../../services/SandBox/BlogManage/BlogDraft';
-import { BlogPublish } from '../../../../services/SandBox/BlogManage/BlogDraft/BlogPublish';
+import { BlogPublish } from '../../../../services/SandBox/BlogManage/BlogDraft';
 import { useNavigate } from 'react-router-dom';
-import { blogDelete } from '../../../../services/SandBox/BlogManage/BlogDraft/BlogDelete';
+import { blogDelete } from '../../../../services/SandBox/BlogManage';
 const BlogDraft: React.FC = () => {
   const navigate = useNavigate()
   const [BlogDraftList, setBlogDraftList] = useState<BlogPublish.blogData[]>()

@@ -3,7 +3,7 @@ import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
-import { tokenVerify } from '../../../services/SandBox/BlogManage/BlogManage';
+import { tokenVerify } from '../../../services/SandBox/BlogManage';
 const { Sider, Content } = Layout;
 
 const BlogManage: React.FC = () => {

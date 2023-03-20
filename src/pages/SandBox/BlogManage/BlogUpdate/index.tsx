@@ -2,7 +2,7 @@ import { Button, Input, message, Select } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import BlogEditor from '../../../../components/BlogEditor'
-import { blogUpdateUp } from '../../../../services/SandBox/BlogManage/BlogDraft/blogUpdateUp'
+import { blogUpdateUp } from '../../../../services/SandBox/BlogManage/BlogDraft'
 import { blogUpdate } from '../../../../services/SandBox/BlogManage/BlogUpdate'
 
 const BlogUpdate: React.FC = () => {
