@@ -12,7 +12,7 @@ const Movie: React.FC = () => {
 		 return <Card
 				key={item.coverPicture}
 			hoverable
-				style={{ width: '23vw' ,float:"left",marginRight:'5vw' }}
+				style={{ width: '15vw' ,float:"left",marginRight:'2vw' }}
 			cover={<img alt="图片url失效" src={item.coverPicture} style={{height:"40vh"}} />}
 		>
 			<div style={{height:'8vh'}}> <Meta title={`${item.title}`} description={`${item.movieType}`}/></div>
