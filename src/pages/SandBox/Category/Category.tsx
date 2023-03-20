@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const Category: React.FC = () => {
   return (
-    <div>
-      Category
-    </div>
+    <div>1</div>
   )
 }
 
