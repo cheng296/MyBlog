@@ -5,6 +5,32 @@ import BlogEditor from '../../../../components/BlogEditor'
 import { blogUpdateUp } from '../../../../services/SandBox/BlogManage/BlogDraft'
 import { blogUpdate } from '../../../../services/SandBox/BlogManage/BlogUpdate'
 
+const selectList = [
+    {
+        value: 'Javascript',
+        label: 'Javascript',
+    },
+    {
+        value: 'Typescript',
+        label: 'Typescript',
+    },
+    {
+        value: 'Html',
+        label: 'Html',
+    },
+    {
+        value: 'css',
+        label: 'css',
+    },
+    {
+        value: 'React',
+        label: 'React',
+    },
+    {
+        value: '其他',
+        label: 'other',
+    },
+]
 const BlogUpdate: React.FC = () => {
     const navigate = useNavigate()
     const { username } = localStorage
@@ -19,7 +45,7 @@ const BlogUpdate: React.FC = () => {
     const _id = useParams().id!
     useEffect(() => {
         blogUpdate(_id).then(res => {
-            setBlogData(res.data[0] )
+            setBlogData(res.data[0])
         })
     }, [_id])
     const handleNext = (state: number) => {
@@ -33,7 +59,7 @@ const BlogUpdate: React.FC = () => {
             message.error('博客内容不能为空！')
         }
         else {
-            blogUpdateUp({_id, title: blogData.title, category: blogData.category, content: blogData.content, username, state }).then(res => {
+            blogUpdateUp({ _id, title: blogData.title, category: blogData.category, content: blogData.content, username, state }).then(res => {
                 if (res.data) {
                     if (state === 1) {
                         navigate('/blogManage/blogDraft')
@@ -44,62 +70,30 @@ const BlogUpdate: React.FC = () => {
             })
         }
     }
-    const SelectonChange = (value: string) => {
-        setBlogData({ ...blogData, category: value })
-    };
-    const InputonChange = (event: any) => {
-        setBlogData({ ...blogData, title: event.target.value })
-    };
-
     return (
         <>
-            {blogData && <div style={{ backgroundColor: 'white', width: '900px' }}>
+            {blogData && <div style={{ backgroundColor: 'white', width: '60vw' }}>
                 <Input
                     placeholder="请输入您的博客标题"
-                    onChange={InputonChange}
-                    style={{ marginBottom: '10px' }}
+                    onChange={(event: any) => { setBlogData({ ...blogData, title: event.target.value }) }}
+                    style={{ marginBottom: '2vh' }}
                     value={blogData.title}
                 />
                 <Select
                     showSearch
                     placeholder="选择您的博客类别"
                     optionFilterProp="children"
-                    onChange={SelectonChange}
+                    onChange={(value: string) => { setBlogData({ ...blogData, category: value }) }}
                     filterOption={(input, option) =>
                         (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
                     }
-                    style={{ marginBottom: '10px' }}
+                    style={{ marginBottom: '2vh' }}
                     value={blogData.category}
-                    options={[
-                        {
-                            value: 'Javascript',
-                            label: 'Javascript',
-                        },
-                        {
-                            value: 'Typescript',
-                            label: 'Typescript',
-                        },
-                        {
-                            value: 'Html',
-                            label: 'Html',
-                        },
-                        {
-                            value: 'css',
-                            label: 'css',
-                        },
-                        {
-                            value: 'React',
-                            label: 'React',
-                        },
-                        {
-                            value: '其他',
-                            label: 'other',
-                        },
-                    ]}
+                    options={selectList}
                 />
                 <BlogEditor getContent={(value: string): void => { setBlogData({ ...blogData, content: value }) }} blogContent={blogData.content} />
                 <div>
-                    <Button onClick={() => handleNext(1)} style={{ marginRight: '20px' }}>保存到草稿箱</Button>
+                    <Button onClick={() => handleNext(1)} style={{ marginRight: '2vw' }}>保存到草稿箱</Button>
                     <Button onClick={() => handleNext(2)} type='primary'>发布</Button>
                 </div>
             </div>}</>

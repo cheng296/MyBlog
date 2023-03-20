@@ -10,7 +10,7 @@ const BlogPublished: React.FC = () => {
       title: '博客标题',
       dataIndex: 'title',
       key: 'title',
-      render: (title: string, item: any) => {
+      render: (title: string, item: BlogPublish.blogData) => {
         return <a href={`#/blogPreview/${item._id}`}>{title}</a>
       }
     },
@@ -30,7 +30,7 @@ const BlogPublished: React.FC = () => {
         return <Tag color="red" onClick={() => {
           blogDelete(item._id).then(res => {
             if (res.data.ok) {
-              setBlogPublishedList(BlogPublishedList.filter((data: any) => data._id !== item._id))
+              setBlogPublishedList(BlogPublishedList.filter((data: BlogPublish.blogData) => data._id !== item._id))
             }
           })
         }}>删除</Tag>
@@ -44,9 +44,7 @@ const BlogPublished: React.FC = () => {
     })
   }, [user])
   return (
-    <div>
-      <Table dataSource={BlogPublishedList} columns={columns} rowKey={item => item._id} />
-    </div>
+    <Table dataSource={BlogPublishedList} columns={columns} rowKey={item => item._id} />
   )
 }
 

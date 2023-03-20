@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Login: React.FC = () => {
 
   const navigate = useNavigate()
-  const onFinish = (values: any) => {
+  const onFinish = (values: Login.values) => {
     loginCheck(values).then(res => {
       if (res.data.ok) {
         const { authorization } = res.headers
@@ -19,12 +19,9 @@ const Login: React.FC = () => {
       }
     })
   };
-  const handlehome = () => {
-    navigate('/')
-  }
   return (
     <div>
-      <Button onClick={() => handlehome()}>返回首页</Button>
+      <Button onClick={() => {navigate('/')}}>返回首页</Button>
       <div className="loginForm">
         <span className='title'>
           用户登录
@@ -43,7 +40,6 @@ const Login: React.FC = () => {
           >
             <Input />
           </Form.Item>
-
           <Form.Item
             label="密码"
             name="password"
@@ -52,7 +48,6 @@ const Login: React.FC = () => {
           >
             <Input.Password />
           </Form.Item>
-
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
               登录

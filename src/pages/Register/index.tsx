@@ -20,19 +20,16 @@ const Register: React.FC = () => {
         },
     };
 
-    const onFinish = (values: any) => {
+    const onFinish = (values: Register.values) => {
         regiserSend(values).then(res => {
             if (res.data.ok === 1) {
                 navigate('/login')
             }
         })
     };
-    const handlehome = () => {
-        navigate('/')
-    }
     return (
         <div>
-            <Button onClick={() => handlehome()}>返回首页</Button>
+            <Button onClick={() => {navigate('/')}}>返回首页</Button>
             <div className='registerForm'>
                 <span className="title" style={{ display: 'block', textAlign: 'center' }}>
                     注册用户

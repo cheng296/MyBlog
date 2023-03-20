@@ -9,12 +9,12 @@ import { blogDelete } from '../../../../services/SandBox/BlogManage';
 const BlogDraft: React.FC = () => {
   const navigate = useNavigate()
   const [BlogDraftList, setBlogDraftList] = useState<BlogPublish.blogData[]>()
-  const columns: ColumnsType<BlogPublish.blogData>= [
+  const columns: ColumnsType<BlogPublish.blogData> = [
     {
       title: '博客标题',
       dataIndex: 'title',
       key: 'title',
-      render: (title: string, item: any) => {
+      render: (title: string, item: BlogPublish.blogData) => {
         return <a href={`#/blogPreview/${item._id}`}>{title}</a>
       }
     },
@@ -35,13 +35,13 @@ const BlogDraft: React.FC = () => {
           <Button danger icon={<DeleteOutlined />} shape='circle' onClick={() => {
             blogDelete(item._id).then(res => {
               if (res.data.ok) {
-                setBlogDraftList(BlogDraftList?.filter((data:BlogPublish.blogData) => data._id !== item._id))
+                setBlogDraftList(BlogDraftList?.filter((data: BlogPublish.blogData) => data._id !== item._id))
               }
             })
-          }} style={{marginRight:'20px'}}/>
+          }} style={{ marginRight: '1vw' }} />
           <Button shape="circle" icon={<EditOutlined />} onClick={() => {
             navigate(`/blogManage/blogUpdate/${item._id}`)
-          }} style={{marginRight:'20px'}}/>
+          }} style={{ marginRight: '1vw' }} />
           <Button type="primary" shape="circle" icon={<UploadOutlined />} onClick={() => {
             BlogPublish(item._id).then(res => {
               if (res.data.ok) {
@@ -61,9 +61,7 @@ const BlogDraft: React.FC = () => {
     })
   }, [user])
   return (
-    <div>
-      <Table dataSource={BlogDraftList} columns={columns} rowKey={item => item._id} />
-    </div>
+    <Table dataSource={BlogDraftList} columns={columns} rowKey={item => item._id} />
   )
 }
 

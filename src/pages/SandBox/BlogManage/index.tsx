@@ -52,7 +52,7 @@ const BlogManage: React.FC = () => {
         }
     ];
     return (
-        <Layout className="site-layout-background" style={{ padding: '24px 0' }}>
+        <Layout className="site-layout-background" style={{ padding: '3vh 0' }}>
             <Sider className="site-layout-background" width={200}>
                 <Menu
                     mode="inline"
@@ -60,7 +60,7 @@ const BlogManage: React.FC = () => {
                     items={functionList}
                 />
             </Sider>
-            <Content style={{ padding: '0 24px', minHeight: 280 }}>
+            <Content style={{ padding: '0 5vw', minHeight: 280 }}>
                 <Outlet />
             </Content>
         </Layout>
