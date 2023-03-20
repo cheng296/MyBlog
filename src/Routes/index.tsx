@@ -12,6 +12,7 @@ import NotFound from '../pages/404';
 import BlogPreview from '../pages/SandBox/BlogPreview'
 import BlogUpdate from '../pages/SandBox/BlogManage/BlogUpdate';
 import About from '../pages/SandBox/About';
+import Movie from '../pages/SandBox/Movie';
 
 const routes = [
     {
@@ -67,6 +68,10 @@ const routes = [
             {
                 path: 'about',
                 element: <About/>
+            },
+            {
+                path: 'movie',
+                element: <Movie/>
             },
             {
                 path: '/',

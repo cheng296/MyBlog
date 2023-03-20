@@ -12,7 +12,7 @@ const BlogPreview: React.FC = () => {
         })
     }, [id])
     return (
-        <div>
+        <div style={{margin:'0 0px'}}>
             {
                 blogData && <div>
                     <PageHeader
@@ -27,8 +27,6 @@ const BlogPreview: React.FC = () => {
                     }}
                         style={{
                             margin: '0 24px',
-                            height:'562px',
-                            overflow:'scroll'
                         }}>
                     </div>
                 </div>
