@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form, Input, message } from 'antd';
 import './index.css'
-import { loginCheck } from '../../services/Login/Login';
+import { loginCheck } from '../../services/Login';
 import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input, Select, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import './index.css'
-import { regiserSend } from '../../services/Register/Register';
+import { regiserSend } from '../../services/Register';
 
 const { Option } = Select;
 
