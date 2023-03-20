@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { Layout } from 'antd';
-import './SandBox.css'
+import './index.css'
 import Headers from '../../layouts/Header';
 import Footers from '../../layouts/Footer';
 

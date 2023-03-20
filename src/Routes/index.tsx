@@ -1,17 +1,17 @@
 import {Navigate} from 'react-router-dom'
-import SandBox from "../pages/SandBox/SandBox";
-import Login from "../pages/Login/Login";
-import Home from '../pages/SandBox/Home/Home';
-import Category from '../pages/SandBox/Category/Category';
+import SandBox from "../pages/SandBox";
+import Login from "../pages/Login";
+import Home from '../pages/SandBox/Home';
+import Category from '../pages/SandBox/Category';
 import BlogAdd from '../pages/SandBox/BlogManage/BlogAdd';
 import BlogDraft from '../pages/SandBox/BlogManage/BlogDraft';
 import BlogPublished from '../pages/SandBox/BlogManage/BlogPublished';
-import BlogManage from '../pages/SandBox/BlogManage/BlogManage';
-import Register from '../pages/Register/Register';
-import Invalid from '../pages/Invalid/Invalid';
-import BlogPreview from '../pages/SandBox/BlogManage/BlogPreview'
+import BlogManage from '../pages/SandBox/BlogManage';
+import Register from '../pages/Register';
+import NotFound from '../pages/404';
+import BlogPreview from '../pages/SandBox/BlogPreview'
 import BlogUpdate from '../pages/SandBox/BlogManage/BlogUpdate';
-import About from '../pages/SandBox/About/About';
+import About from '../pages/SandBox/About';
 
 const routes = [
     {
@@ -35,33 +35,33 @@ const routes = [
                 element:<Category/>
             },
             {
-                path:'blog-manage',
+                path:'blogManage',
                 element:<BlogManage/>,
                 children:[
                     {
-                        path:'blog-add',
+                        path:'blogAdd',
                         element:<BlogAdd/>
                     },
                     {
-                        path:'blog-draft',
+                        path:'blogDraft',
                         element:<BlogDraft/>
                     },
                     {
-                        path:'blog-published',
+                        path:'blogPublished',
                         element:<BlogPublished/>
                     },
                     {
-                        path:'blog-update/:id',
+                        path:'blogUpdate/:id',
                         element:<BlogUpdate/>
                     },
                     {
-                        path: '/blog-manage',
-                        element: <Navigate to='blog-add' />
-                    },
+                        path: '/blogManage',
+                        element: <Navigate to='blogAdd' />
+                    }
                 ]
             },
             {
-                path:'blog-preview/:id',
+                path:'blogPreview/:id',
                 element:<BlogPreview/>
             },
             {
@@ -74,7 +74,7 @@ const routes = [
             },
             {
                 path: '*',
-                element: <Invalid/>
+                element: <NotFound/>
             }
         ]
     },

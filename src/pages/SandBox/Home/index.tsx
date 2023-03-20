@@ -1,4 +1,4 @@
-import { Calendar, Card, Image, List } from 'antd'
+import {  Card, List } from 'antd'
 import { HeartTwoTone } from '@ant-design/icons'
 import React, { useEffect, useState } from 'react'
 import { getAllBlog } from '../../../services/SandBox/BlogManage/Home/Home';
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
         renderItem={(item: blogPreview.blogData) => (
           <List.Item>
             <List.Item.Meta
-              title={<a href={`#/blog-preview/${item._id}`}>{item.title}</a>}
+              title={<a href={`#/blogPreview/${item._id}`}>{item.title}</a>}
               description={<div style={{ float: 'right', width: '300px' }}><span>作者：{item.username}</span><span style={{ marginLeft: '30px' }}>博客分类：{item.category}</span></div>}
             />
           </List.Item>

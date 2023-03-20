@@ -1,6 +1,5 @@
 import { Layout, Menu, Dropdown, Avatar } from 'antd';
 import type { MenuProps } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -25,10 +24,10 @@ const Headers: React.FC = () => {
             }
         },
         {
-            key: '/blog-manage',
+            key: '/blogManage',
             label: `博客管理`,
             onClick: () => {
-                navigate('/blog-manage')
+                navigate('/blogManage')
             }
         },
         {

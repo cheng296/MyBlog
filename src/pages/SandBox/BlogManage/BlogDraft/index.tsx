@@ -2,10 +2,10 @@ import { Button, Table } from 'antd';
 import React, { useEffect, useState } from 'react'
 import type { ColumnsType } from 'antd/es/table';
 import { DeleteOutlined, EditOutlined, UploadOutlined } from '@ant-design/icons';
-import { draftList } from '../../../services/SandBox/BlogManage/BlogDraft';
-import { BlogPublish } from '../../../services/SandBox/BlogManage/BlogDraft/BlogPublish';
+import { draftList } from '../../../../services/SandBox/BlogManage/BlogDraft';
+import { BlogPublish } from '../../../../services/SandBox/BlogManage/BlogDraft/BlogPublish';
 import { useNavigate } from 'react-router-dom';
-import { blogDelete } from '../../../services/SandBox/BlogManage/BlogDraft/BlogDelete';
+import { blogDelete } from '../../../../services/SandBox/BlogManage/BlogDraft/BlogDelete';
 const BlogDraft: React.FC = () => {
   const navigate = useNavigate()
   const [BlogDraftList, setBlogDraftList] = useState<BlogPublish.blogData[]>()
@@ -15,7 +15,7 @@ const BlogDraft: React.FC = () => {
       dataIndex: 'title',
       key: 'title',
       render: (title: string, item: any) => {
-        return <a href={`#/blog-preview/${item._id}`}>{title}</a>
+        return <a href={`#/blogPreview/${item._id}`}>{title}</a>
       }
     },
     {
@@ -40,12 +40,12 @@ const BlogDraft: React.FC = () => {
             })
           }} style={{marginRight:'20px'}}/>
           <Button shape="circle" icon={<EditOutlined />} onClick={() => {
-            navigate(`/blog-manage/blog-update/${item._id}`)
+            navigate(`/blogManage/blogUpdate/${item._id}`)
           }} style={{marginRight:'20px'}}/>
           <Button type="primary" shape="circle" icon={<UploadOutlined />} onClick={() => {
             BlogPublish(item._id).then(res => {
               if (res.data.ok) {
-                navigate('/blog-manage/blog-published')
+                navigate('/blogManage/blogPublished')
               }
             })
           }} />

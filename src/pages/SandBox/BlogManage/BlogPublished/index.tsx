@@ -1,7 +1,7 @@
 import { Table, Tag } from 'antd'
 import React, { useEffect, useState } from 'react'
-import { blogPublished } from '../../../services/SandBox/BlogManage/BlogPublished'
-import { blogDelete } from '../../../services/SandBox/BlogManage/BlogDraft/BlogDelete'
+import { blogPublished } from '../../../../services/SandBox/BlogManage/BlogPublished'
+import { blogDelete } from '../../../../services/SandBox/BlogManage/BlogDraft/BlogDelete'
 
 const BlogPublished: React.FC = () => {
   const [BlogPublishedList, setBlogPublishedList] = useState<BlogPublish.blogData[]>([])
@@ -11,7 +11,7 @@ const BlogPublished: React.FC = () => {
       dataIndex: 'title',
       key: 'title',
       render: (title: string, item: any) => {
-        return <a href={`#/blog-preview/${item._id}`}>{title}</a>
+        return <a href={`#/blogPreview/${item._id}`}>{title}</a>
       }
     },
     {

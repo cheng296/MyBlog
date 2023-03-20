@@ -1,8 +1,8 @@
 import { Button, Input, message, Select } from 'antd';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import BlogEditor from '../../../components/BlogEditor';
-import { blogUp } from '../../../services/SandBox/BlogManage/BlogAdd';
+import BlogEditor from '../../../../components/BlogEditor';
+import { blogUp } from '../../../../services/SandBox/BlogManage/BlogAdd';
 
 const BlogAdd: React.FC = () => {
   const navigate = useNavigate()
@@ -25,9 +25,9 @@ const BlogAdd: React.FC = () => {
       blogUp(title,category,content,username,state).then(res=>{
         if(res.data){
           if(state===1){
-            navigate('/blog-manage/blog-draft')
+            navigate('/blogManage/blogDraft')
           }else{
-            navigate('/blog-manage/blog-published')
+            navigate('/blogManage/blogPublished')
           }
         }
       })

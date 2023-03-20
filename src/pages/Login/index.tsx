@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Form, Input, message } from 'antd';
-import './Login.css'
+import './index.css'
 import { loginCheck } from '../../services/Login/Login';
 import { useNavigate } from 'react-router-dom';
 
