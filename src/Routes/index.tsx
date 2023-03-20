@@ -8,7 +8,7 @@ import BlogDraft from '../pages/SandBox/BlogManage/BlogDraft';
 import BlogPublished from '../pages/SandBox/BlogManage/BlogPublished';
 import BlogManage from '../pages/SandBox/BlogManage';
 import Register from '../pages/Register';
-import NotFound from '../pages/404';
+import Invalid from '../pages/404';
 import BlogPreview from '../pages/SandBox/BlogPreview'
 import BlogUpdate from '../pages/SandBox/BlogManage/BlogUpdate';
 import About from '../pages/SandBox/About';
@@ -74,7 +74,7 @@ const routes = [
             },
             {
                 path: '*',
-                element: <NotFound/>
+                element: <Invalid/>
             }
         ]
     },

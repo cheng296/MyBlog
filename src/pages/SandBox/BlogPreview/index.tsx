@@ -27,8 +27,6 @@ const BlogPreview: React.FC = () => {
                     }}
                         style={{
                             margin: '0 5vw',
-                            height:'75vh',
-                            overflow:'scroll'
                         }}>
                     </div>
                 </div>

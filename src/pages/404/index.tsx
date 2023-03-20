@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import './index.css'
 
 const Invalid:React.FC = () => {
   return (
-    <div>
-        404
-    </div>
+    <Fragment>
+        
+    </Fragment>
   )
 }
 export default Invalid;
