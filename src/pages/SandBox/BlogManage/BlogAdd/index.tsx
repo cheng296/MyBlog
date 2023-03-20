@@ -86,7 +86,7 @@ const BlogAdd: React.FC = () => {
       </div>
       <div style={{ marginLeft: "2vw" }}>
         <Button onClick={() => handleNext(1)} style={{ marginBottom: '2vw' }}>保存到草稿箱</Button>
-        <Button onClick={() => handleNext(2)} type='primary'>发布</Button>
+        <Button onClick={() => handleNext(2)} type='primary' >发布</Button>
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Select, Button } from 'antd';
+import { Form, Input, Select, Button, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import './index.css'
 import { regiserSend } from '../../services/Register';
@@ -24,6 +24,8 @@ const Register: React.FC = () => {
         regiserSend(values).then(res => {
             if (res.data.ok === 1) {
                 navigate('/login')
+            }else{
+                message.error('用户名已存在！')
             }
         })
     };
