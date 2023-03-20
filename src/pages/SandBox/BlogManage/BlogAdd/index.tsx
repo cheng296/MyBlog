@@ -40,52 +40,54 @@ const BlogAdd: React.FC = () => {
     setTitle(event.target.value)
   };
   return (
-    <div style={{ backgroundColor: 'white', width: '900px' }}>
-      <Input 
-        placeholder="请输入您的博客标题"
-        onChange={InputonChange}
-        style={{marginBottom:'10px'}}
-        />
-      <Select
-        showSearch
-        placeholder="选择您的博客类别"
-        optionFilterProp="children"
-        onChange={SelectonChange}
-        filterOption={(input, option) =>
-          (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
-        }
-        style={{marginBottom:'10px'}}
-        options={[
-          {
-            value: 'Javascript',
-            label: 'Javascript',
-          },
-          {
-            value: 'Typescript',
-            label: 'Typescript',
-          },
-          {
-            value: 'Html',
-            label: 'Html',
-          },
-          {
-            value: 'css',
-            label: 'css',
-          },
-          {
-            value: 'React',
-            label: 'React',
-          },
-          {
-            value: '其他',
-            label: 'other',
-          },
-        ]}
-      />
-      <BlogEditor getContent={(value: any): void => { setContent(value) }} blogContent={content}/>
-      <div>
-        <Button onClick={() => handleNext(1)} style={{marginRight:'20px'}}>保存到草稿箱</Button>
-        <Button onClick={() => handleNext(2)} type='primary'>发布</Button>
+    <div style={{display:'flex'}}>
+      <div style={{ backgroundColor: 'white', width: '900px' }}>
+   <Input 
+     placeholder="请输入您的博客标题"
+     onChange={InputonChange}
+     style={{marginBottom:'10px'}}
+     />
+   <Select
+     showSearch
+     placeholder="选择您的博客类别"
+     optionFilterProp="children"
+     onChange={SelectonChange}
+     filterOption={(input, option) =>
+       (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+     }
+     style={{marginBottom:'10px'}}
+     options={[
+       {
+         value: 'Javascript',
+         label: 'Javascript',
+       },
+       {
+         value: 'Typescript',
+         label: 'Typescript',
+       },
+       {
+         value: 'Html',
+         label: 'Html',
+       },
+       {
+         value: 'css',
+         label: 'css',
+       },
+       {
+         value: 'React',
+         label: 'React',
+       },
+       {
+         value: '其他',
+         label: 'other',
+       },
+     ]}
+   />
+   <BlogEditor getContent={(value: any): void => { setContent(value) }} blogContent={content}/>
+ </div>
+   <div style={{marginLeft:"2vw"}}>
+   <Button onClick={() => handleNext(1)} style={{marginRight:'20px'}}>保存到草稿箱</Button>
+   <Button onClick={() => handleNext(2)} type='primary'>发布</Button>
       </div>
     </div>
   )
