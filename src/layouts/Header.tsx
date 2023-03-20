@@ -31,6 +31,13 @@ const Headers: React.FC = () => {
             }
         },
         {
+            key: '/movie',
+            label: `电影推荐`,
+            onClick: () => {
+                navigate('/movie')
+            }
+        },
+        {
             key: '/about',
             label: `关于我们`,
             onClick: () => {
