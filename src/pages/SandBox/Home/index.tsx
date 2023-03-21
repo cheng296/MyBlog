@@ -20,6 +20,8 @@ const Home: React.FC = () => {
         style={{ width: '60vw', height: "70vh" }}
         pagination={{
           pageSize: 4,
+          position: 'bottom',
+          hideOnSinglePage:true,
         }}
         dataSource={blogList}
         renderItem={item => (
@@ -28,7 +30,7 @@ const Home: React.FC = () => {
             style={{height:'17vh'}}
             extra={
               <img
-                width={'120vw'}
+                width={'100vw'}
                 alt="URL无效"
                 src={item.imgURL}
               />
