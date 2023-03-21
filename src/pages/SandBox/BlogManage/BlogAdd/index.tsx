@@ -35,6 +35,7 @@ const BlogAdd: React.FC = () => {
   const [content, setContent] = useState<any>('')
   const [title, setTitle] = useState<string>('')
   const [category, setCategory] = useState<string>('')
+  const [imgURL, setImgURL] = useState<string>('https://pic3.zhimg.com/v2-d84ab7ae14e3239c82b2eb7b8c7c63ba_b.jpg')
   const { username } = localStorage
 
   const handleNext = (state: number) => {
@@ -48,7 +49,7 @@ const BlogAdd: React.FC = () => {
       message.error('博客内容不能为空！')
     }
     else {
-      blogUp({ title, category, content, username, state }).then(res => {
+      blogUp({ title, category, content, username, state, imgURL }).then(res => {
         if (res.data) {
           if (state === 1) {
             navigate('/blogManage/blogDraft')
@@ -69,6 +70,11 @@ const BlogAdd: React.FC = () => {
           }}
           style={{ marginBottom: '2vh' }}
         />
+        <Input
+          placeholder="请输入您的博客的封面图片URL" 
+          onChange={(event:any) => {
+            setImgURL(event.target.value)
+          }}/>
         <Select
           showSearch
           placeholder="选择您的博客类别"
@@ -79,7 +85,7 @@ const BlogAdd: React.FC = () => {
           filterOption={(input, option) =>
             (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
           }
-          style={{ marginBottom: '2vh' }}
+          style={{ margin: '2vh 0' }}
           options={selectList}
         />
         <BlogEditor getContent={(value: any): void => { setContent(value) }} blogContent={content} />

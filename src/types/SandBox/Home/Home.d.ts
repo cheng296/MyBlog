@@ -6,6 +6,6 @@ declare namespace Home{
         content: string,
         username: string,
         state: number
-        __v:number
+        imgURL: string
     }
 }

@@ -1,7 +1,8 @@
-import {  Card, List } from 'antd'
+import { Avatar, Card, List } from 'antd'
 import { HeartTwoTone } from '@ant-design/icons'
 import React, { useEffect, useState } from 'react'
 import { getAllBlog } from '../../../services/SandBox/Home';
+import './index.css'
 
 const Home: React.FC = () => {
   const [blogList, setBlogList] = useState<Home.blogList[]>()
@@ -13,19 +14,30 @@ const Home: React.FC = () => {
   return (
     <div style={{ display: 'flex' }}>
       <List
-        header={<div><HeartTwoTone twoToneColor="#eb2f96" />博客合集</div>}
-        itemLayout="horizontal"
-        bordered
+        itemLayout="vertical"
+        size="large"
+        header={<div><HeartTwoTone twoToneColor="#eb2f96" style={{marginRight:'0.3vw'}}/><span>博客合集</span></div>}
         style={{ width: '60vw', height: "70vh" }}
-        dataSource={blogList}
         pagination={{
-          pageSize: 6,
+          pageSize: 4,
         }}
-        renderItem={(item: blogPreview.blogData) => (
-          <List.Item>
+        dataSource={blogList}
+        renderItem={item => (
+          <List.Item
+            key={item.title}
+            style={{height:'17vh'}}
+            extra={
+              <img
+                width={'120vw'}
+                alt="URL无效"
+                src={item.imgURL}
+              />
+            }
+          >
             <List.Item.Meta
+              avatar={<Avatar size="large" style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>{item.username}</Avatar>}
               title={<a href={`#/blogPreview/${item._id}`}>{item.title}</a>}
-              description={<div style={{ float: 'right', width: '20vw' }}><span>作者：{item.username}</span><span style={{ marginLeft: '3vw' }}>博客分类：{item.category}</span></div>}
+              description={<div style={{ float: 'left', width: '20vw' }}><span>作者：{item.username}</span><span style={{ marginLeft: '3vw' }}>博客分类：{item.category}</span></div>}
             />
           </List.Item>
         )}
