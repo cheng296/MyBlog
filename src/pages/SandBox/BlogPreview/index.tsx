@@ -12,7 +12,7 @@ const BlogPreview: React.FC = () => {
         })
     }, [id])
     return (
-        <div>
+        <div >
             {
                 blogData && <div>
                     <PageHeader
