@@ -5,6 +5,7 @@ declare namespace blogAdd{
         category: string,
         content: any,
         username: string,
-        state: number
+        state: number,
+        imgURL: string
    }
 }

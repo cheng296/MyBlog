@@ -1,4 +1,4 @@
-import { List, Segmented } from 'antd';
+import { Avatar, List, Segmented } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { getBlogCategory } from '../../../services/SandBox/Category';
 import './index.css'
@@ -22,21 +22,32 @@ const Category: React.FC = () => {
         size='large'
       />
       <List
-        size="small"
-        dataSource={blogList}
-        renderItem={item => <List.Item>
-          <List.Item.Meta
-            title={<a href={`#/blogPreview/${item._id}`}>{item.title}</a>} 
-            description={<div style={{ float: 'right', width: '20vw' }}><span>作者：{item.username}</span><span style={{ marginLeft: '3vw' }}>博客分类：{item.category}</span></div>}
-            />
-        </List.Item>}
+        itemLayout="vertical"
+        size="large"
+        style={{ width: '60vw', height: "70vh", marginTop:'2vh'}}
         pagination={{
-          pageSize: 7,
+          pageSize: 4,
         }}
-        style={{
-          marginTop: '5vh',
-          height: '60vh'
-        }}
+        dataSource={blogList}
+        renderItem={item => (
+          <List.Item
+            key={item.title}
+            style={{ height: '17vh' }}
+            extra={
+              <img
+                width={'120vw'}
+                alt="URL无效"
+                src={item.imgURL}
+              />
+            }
+          >
+            <List.Item.Meta
+              avatar={<Avatar size="large" style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>{item.username}</Avatar>}
+              title={<a href={`#/blogPreview/${item._id}`}>{item.title}</a>}
+              description={<div style={{ float: 'left', width: '20vw' }}><span>作者：{item.username}</span><span style={{ marginLeft: '3vw' }}>博客分类：{item.category}</span></div>}
+            />
+          </List.Item>
+        )}
       />
     </div>
   )
