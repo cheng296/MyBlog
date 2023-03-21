@@ -11,9 +11,9 @@ const SandBox: React.FC = () => {
   return (
     <Layout>
       <Headers />
-      <Content style={{ padding: '0px 3vw',  }}>
+      <Content style={{ padding: '0px 3vw', }}>
         <Layout className="site-layout-background" style={{ padding: '3vh 0' }}>
-          <Content style={{ padding: '0 2vw',overflow:'auto' }}>
+          <Content style={{ padding: '0 2vw', overflow: 'auto' }}>
             <Outlet />
           </Content>
         </Layout>
